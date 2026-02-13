@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 8080
 
 # The command to start your Node.js server
-CMD ["node", "server.js"]
+CMD ["node", "src/server.js"]
