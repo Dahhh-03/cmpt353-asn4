@@ -22,6 +22,7 @@ app.get('/api/posts', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM posts ORDER BY timestamp DESC, id DESC');
         res.json(rows);
+        res.status(200).json(rows);
     } catch (err) {
         res.status(500).json({ error: 'Database error' });
     }
@@ -39,7 +40,7 @@ app.post('/api/posts', async (req, res) => {
     try {
         const [result] = await pool.query('INSERT INTO posts (topic, data) VALUES (?, ?)', [topic, data]);
         const [newPost] = await pool.query('SELECT * FROM posts WHERE id = ?', [result.insertId]);
-        res.status(201).json(newPost); // Return 201 Created [8]
+        res.status(201).json(newPost); // Return 201 Created
     } catch (err) {
         res.status(500).json({ error: 'Database error' });
     }
