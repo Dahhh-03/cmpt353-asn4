@@ -4,7 +4,7 @@ const mysql = require('mysql2/promise');
 const cors = require('cors');
 
 const app = express();
-const PORT = 80;
+const PORT = 5000;
 
 app.use(express.json());
 app.use(cors()); // Enable Cross-Origin Resource Sharing
@@ -46,6 +46,6 @@ app.post('/api/posts', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server up and running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
