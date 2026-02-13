@@ -1,7 +1,6 @@
 // Set up the routes for the Landing Page, View Posts, and Create Post
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-// import Home from './pages/Home';
 import Home from './pages/Home';
 import ViewPosts from './pages/ViewPosts';
 import CreatePost from './pages/CreatePost';
