@@ -1,7 +1,6 @@
 # Since Assignment 4 requires a production build (dist/ folder), the Dockerfile should build the React app and then serve those static files
 
-# Use the latest Node.js image
-FROM node:latest
+FROM node:20-alpine
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -15,6 +14,8 @@ COPY . .
 
 # Generate the production build output (the dist/ folder)
 RUN npm run build
+
+RUN mv build dist
 
 # Inform Docker the container will use port 80
 EXPOSE 80
