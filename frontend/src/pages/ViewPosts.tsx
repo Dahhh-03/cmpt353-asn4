@@ -2,11 +2,19 @@
 
 import { useEffect, useState } from 'react';
 
+// Define the structure of your Post object
+interface Post {
+  id: number;
+  topic: string;
+  data: string;
+  timestamp: string;
+}
+
 export default function ViewPosts() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch('/api/posts') // Use fetch API [1]
+    fetch('/api/posts') // Use fetch API
       .then(res => res.json())
       .then(data => setPosts(data));
   }, []);

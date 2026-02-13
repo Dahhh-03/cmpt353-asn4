@@ -1,6 +1,6 @@
 // A form with basic client-side validation that submits JSON to the backend
 
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreatePost() {
@@ -8,9 +8,9 @@ export default function CreatePost() {
   const [data, setData] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!topic || !data) return alert('Required fields!'); // Client validation [9]
+    if (!topic || !data) return alert('Required fields!'); // Client validation
 
     const res = await fetch('/api/posts', {
       method: 'POST',
@@ -18,7 +18,7 @@ export default function CreatePost() {
       body: JSON.stringify({ topic, data })
     });
 
-    if (res.ok) navigate('/posts'); // Redirect on success [9]
+    if (res.ok) navigate('/posts'); // Redirect on success
   };
 
   return (
