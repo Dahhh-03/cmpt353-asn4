@@ -15,10 +15,6 @@ export default function Home() {
         stored in a database, ensuring that your information survives 
         container restarts.
       </p>
-      <nav className="landing-nav">
-        <Link to="/posts">Browse Existing Posts</Link> | 
-        <Link to="/create"> Create a New Entry</Link>
-      </nav>
     </div>
   );
 }
