@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:latest
+    volumes:
+      - mysql_data:/var/lib/mysql # Volume for persistence
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: posting_db
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: db
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80" # Map host port 80
