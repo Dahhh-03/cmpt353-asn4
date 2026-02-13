@@ -8,9 +8,20 @@ services:
       MYSQL_DATABASE: posting_db
   backend:
     build: ./backend
+    volumes:
+      - ./backend:/usr/src/app
     environment:
       DB_HOST: db
+    depends_on:
+      - db
   frontend:
     build: ./frontend
     ports:
-      - "80:80" # Map host port 80
+      - "80:8080" # Map host port 80
+    volumes:
+      - ./frontend:/usr/src/app
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:

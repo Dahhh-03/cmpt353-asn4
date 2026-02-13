@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "CMPT353 Assignment 4 Backend",
   "main": "index.js",
   "dependencies": {
     "cors": "^2.8.6",
