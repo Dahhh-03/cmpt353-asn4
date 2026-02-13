@@ -1,0 +1,1 @@
+docker volume inspect <your_project_name>_mysql_data
